@@ -33,6 +33,9 @@ function App() {
   const [cityNotFound, setcityNotFound] = useState(false)
   const [error, setError] = useState("")
 
+
+
+
   const weatherIconMap = {
     "01d": clearsky,
     "01n": clearskyn,
