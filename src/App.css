@@ -101,7 +101,8 @@ body {
 
 
 }
-.searchicon{
+
+.searchicon {
     height: 42px;
 }
 
@@ -198,10 +199,14 @@ body {
 .loading,
 .error,
 .citynotfound {
-    color: rgb(71, 67, 67);
+    color: rgb(65, 60, 60);
     font-size: 20px;
     font-weight: 400;
     align-items: center;
     text-align: center;
     padding: 3px;
+}
+
+.error {
+    color: red;
 }

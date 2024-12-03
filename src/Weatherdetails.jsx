@@ -1,10 +1,7 @@
 import React from 'react'
-import sunIcon from './assets/sunny.jpg'
-import rainicon from './assets/rain.png'
-import driizle from './assets/drizzle.png'
 import humidityImage from './assets/humidity.png'
 import windImage from './assets/wind.png'
-import snow from './assets/snow.jpg'
+
 
 const Weatherdetails = ({ icon, temp, city, country, lat, lon, humidity, wind }) => {
     return (

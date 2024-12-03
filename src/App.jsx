@@ -20,7 +20,7 @@ import fognight from './assets/fognight.png'
 
 
 function App() {
-  const [text, setText] = useState("thoothukudi")
+  const [text, setText] = useState("Chennai")
   const [icon, setIcon] = useState(sunIcon);
   const [temp, setTemp] = useState(0)
   const [city, setCity] = useState("")
@@ -32,6 +32,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [cityNotFound, setcityNotFound] = useState(false)
   const [error, setError] = useState("")
+
 
 
 
@@ -67,6 +68,7 @@ function App() {
         console.log('City Not Found')
         setcityNotFound(true);
         setLoading(false)
+        setError(false)
         return;
       } {
         setCity(data.name)
@@ -79,14 +81,17 @@ function App() {
         const weatherIconCode = data.weather[0].icon;
         setIcon(weatherIconMap[weatherIconCode] || clearsky)
         setcityNotFound(false)
+        setError(false)
       }
     } catch (error) {
       console.log(error.message)
-      setError('An error occured while fetching data')
-    } finally {
-      setLoading(false)
+      setError(' An occured while fetching a data. Enter a city name.')
+      setcityNotFound(false)
     }
 
+    finally {
+      setLoading(false)
+    }
   }
   function handleInput(e) {
     setText(e.target.value)
@@ -122,7 +127,8 @@ function App() {
         {error && <div className="error">{error}</div>}
         {cityNotFound && <div className='citynotfound'>City Not Found</div>}
 
-        {!loading && !cityNotFound && <Weatherdetails icon={icon} temp={temp} city={city} country={country}
+
+        {!loading && !cityNotFound && !error && <Weatherdetails icon={icon} temp={temp} city={city} country={country}
           lat={lat} lon={lon} humidity={humidity} wind={wind} />}
       </div>
 
@@ -131,3 +137,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+
